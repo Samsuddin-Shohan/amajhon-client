@@ -3,7 +3,7 @@ import './Shop.css';
 
 const Shop = () => {
   return (
-    <div className='text-center'>
+    <div>
       <h1>This is Shop</h1>
     </div>
   );

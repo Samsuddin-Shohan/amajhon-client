@@ -1,0 +1,19 @@
+#logo {
+    height: 100px;
+}
+.nav-link-1 {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    margin: 1rem;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+.nav-link-1:hover {
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+}
+#navbar {
+    padding-left: 5rem;
+}

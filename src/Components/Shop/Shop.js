@@ -3,6 +3,7 @@ import './Shop.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -82,7 +83,13 @@ const Shop = () => {
                     ))}
                 </div>
                 <div id='cart-section' className='col-3 ps-2 '>
-                    <Cart cart={cart}></Cart>
+                    <Cart cart={cart}>
+                        <Link to='/review'>
+                            <button className='btn btn-warning mt-3'>
+                                Review your order
+                            </button>
+                        </Link>
+                    </Cart>
                 </div>
             </div>
         </div>

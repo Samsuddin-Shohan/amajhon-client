@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cart.css';
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, children }) => {
     let totalQuantity = 0;
     let totalPrice = 0.0;
     let itemNumber = cart.length;
@@ -11,7 +11,7 @@ const Cart = ({ cart }) => {
         }
         totalQuantity += parseInt(item.quantity);
         totalPrice += parseFloat(item.price) * parseFloat(item.quantity);
-        console.log(totalQuantity, totalPrice);
+        // console.log(totalQuantity, totalPrice);
     }
     let shipping = totalPrice * 0.07;
     let tax = totalPrice * 0.08;
@@ -67,6 +67,7 @@ const Cart = ({ cart }) => {
                     </div>
                 </div>
             </div>
+            <div className='text-center'>{children}</div>
         </div>
     );
 };

@@ -2,7 +2,10 @@ import React from 'react';
 import './Header.css';
 import logo from './../../images/logo.png';
 import { NavLink } from 'react-router-dom';
+import useFirebase from '../../hooks/useFirebase/useFirebase';
+import useAuth from '../../hooks/useAuth/useAuth';
 const Header = () => {
+    const { user, logOut } = useAuth();
     return (
         <div>
             <div className='text-center'>
@@ -18,6 +21,19 @@ const Header = () => {
                 <NavLink to='/inventory' className='nav-link-1'>
                     Inventory
                 </NavLink>
+                {user.email && (
+                    <span className='text-white me-2'>
+                        Hello {user.displayName}
+                    </span>
+                )}
+
+                {user.email ? (
+                    <button onClick={logOut}>Log Out</button>
+                ) : (
+                    <NavLink to='/login' className='nav-link-1'>
+                        Login
+                    </NavLink>
+                )}
             </div>
         </div>
     );

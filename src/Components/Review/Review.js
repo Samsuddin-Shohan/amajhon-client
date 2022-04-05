@@ -12,10 +12,10 @@ const Review = () => {
     const [cart, setCart] = useCart(products);
     const history = useHistory();
     const handlePlaceOrder = () => {
-        alert('Items Order completed');
+        // alert('Items Order completed');
         setCart([]);
         clearTheCart();
-        history.push('/');
+        history.push('/placeorder');
     };
     //console.log(products, cart.length);
     return (

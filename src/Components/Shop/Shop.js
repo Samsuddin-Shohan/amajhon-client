@@ -4,11 +4,15 @@ import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import { Link } from 'react-router-dom';
+import useCart from '../../hooks/useCart/useCart';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useCart(products);
     let [displayProducts, setDisplayProducts] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
+    const [page, setPage] = useState(0);
+    const size = 10;
     const handleAddtoCart = (product) => {
         // console.log(product);
         let newCart = [];
@@ -27,15 +31,19 @@ const Shop = () => {
     };
 
     useEffect(() => {
-        fetch('./products.JSON')
+        fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
             .then((res) => res.json())
             .then((data) => {
-                setDisplayProducts(data);
-                setProducts(data);
+                setDisplayProducts(data.products);
+                setProducts(data.products);
+                let count = data.count;
+                let pageNumber = Math.ceil(count / 10);
+                setPageCount(pageNumber);
+                console.log(pageCount);
             });
-    }, []);
+    }, [page]);
     useEffect(() => {
-        if (products.length != 0) {
+        if (products.length !== 0) {
             const storedCart = getStoredCart();
             // console.log(storedCart);
             //const savedCart =cart.filter(item => item.key ==)
@@ -81,7 +89,19 @@ const Shop = () => {
                             handleAddtoCart={handleAddtoCart}
                         ></Product>
                     ))}
+                    <div className='pagination'>
+                        {[...Array(pageCount).keys()].map((number) => (
+                            <button
+                                key={number}
+                                onClick={() => setPage(number)}
+                                className={number === page ? 'selected' : ''}
+                            >
+                                {number}
+                            </button>
+                        ))}
+                    </div>
                 </div>
+
                 <div id='cart-section' className='col-3 ps-2 '>
                     <Cart cart={cart}>
                         <Link to='/review'>

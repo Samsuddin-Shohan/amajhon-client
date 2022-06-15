@@ -35,7 +35,7 @@ const Inventory = () => {
     }, [products]);
     return (
         <div id='shopping-section' className='row pt-3 '>
-            <div id='products-section' className='col-9 '>
+            <div id='products-section' className='col-md-9 col-12 '>
                 <div>
                     <CRow md={{ cols: 2 }}>
                         {products.map((product, idx) => (
@@ -48,7 +48,7 @@ const Inventory = () => {
                 </div>
             </div>
 
-            <div id='cart-section' className='col-3 ps-2 '>
+            <div id='cart-section' className='col-md-3 col-0  ps-2 '>
                 <Cart cart={cart}></Cart>
             </div>
         </div>

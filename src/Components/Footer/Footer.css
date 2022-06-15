@@ -1,0 +1,22 @@
+
+#side-logo {
+    width: 250px;
+    height: 60px;
+}
+#footer {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    margin: 0px;
+}
+.logo {
+    font-weight: bolder;
+    font-size: larger;
+    font-family: cursive;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+.logo:hover {
+    color: white;
+}

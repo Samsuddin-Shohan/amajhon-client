@@ -93,7 +93,7 @@ const Cart = ({ cart, children }) => {
                     </tr>
                 </tbody>
             </table>
-            <div className='text-center'>{children}</div>
+            <div className='text-center mb-3'>{children}</div>
         </div>
     );
 };

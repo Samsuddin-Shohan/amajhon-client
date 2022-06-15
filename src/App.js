@@ -9,6 +9,9 @@ import Register from './Components/Register/Register';
 import NotFound from './Components/NotFound/NotFound';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import PlaceOrder from './Components/PlaceOrder/PlaceOrder';
+import Footer from './Components/Footer/Footer';
+import Home from './Components/Home/Home';
+import ReviewForm from './Components/ReviewForm/ReviewForm';
 
 function App() {
     return (
@@ -17,7 +20,7 @@ function App() {
                 <Header></Header>
                 <Switch>
                     <Route exact path='/'>
-                        <Shop></Shop>
+                        <Home></Home>
                     </Route>
                     <Route path='/shop'>
                         <Shop></Shop>
@@ -37,10 +40,14 @@ function App() {
                     <PrivateRoute path='/placeorder'>
                         <PlaceOrder></PlaceOrder>
                     </PrivateRoute>
+                    <PrivateRoute path='/reviewform'>
+                        <ReviewForm></ReviewForm>
+                    </PrivateRoute>
                     <Route path='*'>
                         <NotFound></NotFound>
                     </Route>
                 </Switch>
+                <Footer></Footer>
             </Router>
         </div>
     );

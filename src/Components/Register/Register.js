@@ -27,7 +27,7 @@ const Register = () => {
                     Already Have an account? <Link to='/login'>Login</Link>
                 </p>
                 <div>--------or---------</div>
-                <button className='btn btn-warning mt-3' onClick={googleSignIn}>
+                <button className='btn btn-warning my-3' onClick={googleSignIn}>
                     Google Sign in
                 </button>
             </div>

@@ -10,15 +10,23 @@ const Header = () => {
         <div>
             <div className='bg-light' id='navbar'>
                 <img src={logo} alt='' id='logo' />
+                <NavLink to='/' className='nav-link-1'>
+                    Home
+                </NavLink>
                 <NavLink to='/shop' className='nav-link-1'>
                     Shop
                 </NavLink>
+
                 <NavLink to='/review' className='nav-link-1'>
                     Order Review
                 </NavLink>
                 <NavLink to='/inventory' className='nav-link-1'>
                     Inventory
                 </NavLink>
+                <NavLink to='/reviewform' className='nav-link-1'>
+                    Make your Opionion
+                </NavLink>
+
                 {user.email && (
                     <span className='text-black me-2'>
                         Hello {user.displayName}

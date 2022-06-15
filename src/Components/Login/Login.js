@@ -37,7 +37,7 @@ const Login = () => {
                 </p>
                 <div>--------or---------</div>
                 <button
-                    className='btn btn-warning mt-3'
+                    className='btn btn-warning my-3'
                     onClick={handleGoogleSignIn}
                 >
                     Google Sign in

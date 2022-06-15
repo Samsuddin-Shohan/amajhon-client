@@ -35,7 +35,7 @@ const Review = () => {
                 <div id='cart-section' className='col-3 ps-2 '>
                     <Cart cart={cart}>
                         <button
-                            className='btn btn-warning mt-3'
+                            className='btn btn-success mt-3'
                             onClick={() => handlePlaceOrder()}
                         >
                             Order Item

@@ -20,13 +20,18 @@ const Header = () => {
                     Inventory
                 </NavLink>
                 {user.email && (
-                    <span className='text-white me-2'>
+                    <span className='text-black me-2'>
                         Hello {user.displayName}
                     </span>
                 )}
 
                 {user.email ? (
-                    <button onClick={logOut}>Log Out</button>
+                    <button
+                        className='btn btn-success d-inline me-2'
+                        onClick={logOut}
+                    >
+                        Log Out
+                    </button>
                 ) : (
                     <NavLink to='/login' className='nav-link-1'>
                         Login

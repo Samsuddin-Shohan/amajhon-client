@@ -1,3 +1,4 @@
+import { CRow } from '@coreui/react';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import useCart from '../../hooks/useCart/useCart';
@@ -21,16 +22,17 @@ const Review = () => {
     return (
         <div>
             <div id='shopping-section' className='row pt-3'>
-                <div
-                    id='products-section'
-                    className='col-9 border-end border-1 border-secondary pe-2 border-bottom-1'
-                >
-                    {cart.map((product, idx) => (
-                        <Orderitems
-                            key={product.key}
-                            product={product}
-                        ></Orderitems>
-                    ))}
+                <div id='products-section' className='col-9 '>
+                    <div>
+                        <CRow md={{ cols: 2 }}>
+                            {cart.map((product, idx) => (
+                                <Orderitems
+                                    key={product.key}
+                                    product={product}
+                                ></Orderitems>
+                            ))}
+                        </CRow>
+                    </div>
                 </div>
                 <div id='cart-section' className='col-3 ps-2 '>
                     <Cart cart={cart}>

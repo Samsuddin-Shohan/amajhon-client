@@ -77,21 +77,23 @@ const Shop = () => {
                 <input
                     type='text'
                     placeholder='Search Here'
-                    className='w-25  p-2 m-2 border-success'
+                    className='w-25  p-2 m-2 border-success search-button'
                     onChange={handleSearch}
                 />
             </div>
-            <div id='shopping-section' className='row pt-3'>
+            <div id='shopping-section' className='row pt-3 '>
                 <div id='products-section' className='col-9 '>
-                    <CRow md={{ cols: 2 }}>
-                        {displayProducts.map((product, idx) => (
-                            <Product
-                                key={product.key}
-                                product={product}
-                                handleAddtoCart={handleAddtoCart}
-                            ></Product>
-                        ))}
-                    </CRow>
+                    <div>
+                        <CRow md={{ cols: 2 }}>
+                            {displayProducts.map((product, idx) => (
+                                <Product
+                                    key={product.key}
+                                    product={product}
+                                    handleAddtoCart={handleAddtoCart}
+                                ></Product>
+                            ))}
+                        </CRow>
+                    </div>
                     {/* <div className='pagination'>
                         {[...Array(pageCount).keys()].map((number) => (
                             <button

@@ -1,25 +1,42 @@
+import {
+    CCard,
+    CCardBody,
+    CCardFooter,
+    CCardImage,
+    CCardText,
+    CCardTitle,
+    CCol,
+} from '@coreui/react';
 import React from 'react';
 
 const Orderitems = ({ product, handleAddtoCart }) => {
     const { name, img, price, seller, star, stock } = product;
     return (
-        <div
-            className='border-bottom border-1 border-secondary py-2 px-2 d-flex align-items-center justify-content-unset'
-            id='product-section'
+        <CCol
+            xs
+            className='d-flex align-items-stretch  justify-content-center border-0 mb-3'
         >
-            <div>
-                <img src={img} alt='' />
-            </div>
-            <div className='ms-3'>
-                <h4>{name}</h4>
-                <p className='lh-1'>Price: {price}</p>
-                <p className='lh-1'>
-                    <small>Seller: </small>
-                    {seller}
-                </p>
-                <small className='d-block'>Only {stock} items available</small>
-            </div>
-        </div>
+            <CCard>
+                <CCardImage
+                    orientation='top'
+                    style={{ height: '280px', width: '280px' }}
+                    src={img}
+                />
+                <CCardBody>
+                    <CCardTitle className='product-title'>{name}</CCardTitle>
+                    <CCardText>
+                        {' '}
+                        <span className='text-success fw-bold'>
+                            Seller:
+                        </span>{' '}
+                        {seller}
+                    </CCardText>
+                </CCardBody>
+                <CCardFooter className='d-flex justify-content-between align-items-center'>
+                    <p className='fw-bold'>Price: {price}</p>
+                </CCardFooter>
+            </CCard>
+        </CCol>
     );
 };
 

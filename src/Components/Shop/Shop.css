@@ -12,3 +12,7 @@
     border: none;
     border-radius: 5px;
 }
+.search-button {
+    border-radius: 28px;
+    border: #623333;
+}

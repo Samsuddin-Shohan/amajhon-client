@@ -5,11 +5,16 @@ import Cart from '../Cart/Cart';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import { Link } from 'react-router-dom';
 import useCart from '../../hooks/useCart/useCart';
+import Header from '../Header/Header';
+import { CRow } from '@coreui/react';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useCart(products);
     let [displayProducts, setDisplayProducts] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
+    const [page, setPage] = useState(0);
+    const size = 10;
 
     const handleAddtoCart = (product) => {
         // console.log(product);
@@ -27,17 +32,8 @@ const Shop = () => {
         // console.log(cart);
         addToDb(product.key);
     };
-
     useEffect(() => {
-        fetch(`http://localhost:5000/products?`)
-            .then((res) => res.json())
-            .then((data) => {
-                setDisplayProducts(data.products);
-                setProducts(data.products);
-            });
-    }, []);
-    useEffect(() => {
-        if (products.length !== 0) {
+        if (products.length != 0) {
             const storedCart = getStoredCart();
             // console.log(storedCart);
             //const savedCart =cart.filter(item => item.key ==)
@@ -52,6 +48,20 @@ const Shop = () => {
             setCart(savedCart);
         }
     }, [products]);
+
+    useEffect(() => {
+        fetch(
+            `https://everything20.herokuapp.com/products?page=${page}&&size=${size}`
+        )
+            .then((res) => res.json())
+            .then((data) => {
+                setDisplayProducts(data.products);
+                setProducts(data.products);
+                let count = Math.ceil(data.count / size);
+                setPageCount(count);
+            });
+    }, [page]);
+
     const handleSearch = (e) => {
         const searchText = e.target.value;
         displayProducts = products.filter((product) =>
@@ -63,26 +73,39 @@ const Shop = () => {
 
     return (
         <div>
-            <div id='search-section' className='bg-secondary text-center'>
+            <div id='search-section' className='bg-light text-center'>
                 <input
                     type='text'
-                    placeholder='Search Your Product'
-                    className='w-25  p-2 m-2 fs-4'
+                    placeholder='Search Here'
+                    className='w-25  p-2 m-2 border-success'
                     onChange={handleSearch}
                 />
             </div>
             <div id='shopping-section' className='row pt-3'>
                 <div
                     id='products-section'
-                    className='col-9 border-end border-1 border-secondary pe-2 border-bottom-1'
+                    className='col-9 border-end border-1 border-success  border-bottom-1'
                 >
-                    {displayProducts.map((product, idx) => (
-                        <Product
-                            key={product.key}
-                            product={product}
-                            handleAddtoCart={handleAddtoCart}
-                        ></Product>
-                    ))}
+                    <CRow md={{ cols: 2 }}>
+                        {displayProducts.map((product, idx) => (
+                            <Product
+                                key={product.key}
+                                product={product}
+                                handleAddtoCart={handleAddtoCart}
+                            ></Product>
+                        ))}
+                    </CRow>
+                    {/* <div className='pagination'>
+                        {[...Array(pageCount).keys()].map((number) => (
+                            <button
+                                key={number}
+                                className={number === page ? 'selected' : ''}
+                                onClick={() => setPage(number)}
+                            >
+                                {number}
+                            </button>
+                        ))}
+                    </div> */}
                 </div>
 
                 <div id='cart-section' className='col-3 ps-2 '>

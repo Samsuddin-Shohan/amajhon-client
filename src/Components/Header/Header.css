@@ -1,17 +1,17 @@
 #logo {
-    height: 100px;
+    height: 75px;
 }
 .nav-link-1 {
     display: inline-block;
     text-decoration: none;
-    color: white;
+    color: black;
     margin: 1rem;
     padding: 0.5rem;
     font-weight: bold;
 }
 .nav-link-1:hover {
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: greenyellow;
     border-radius: 5px;
 }
 #navbar {

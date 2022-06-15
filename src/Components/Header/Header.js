@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import logo from './../../images/logo.png';
+import logo from './../../images/Silton .png';
 import { NavLink } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase/useFirebase';
 import useAuth from '../../hooks/useAuth/useAuth';
@@ -8,10 +8,8 @@ const Header = () => {
     const { user, logOut } = useAuth();
     return (
         <div>
-            <div className='text-center'>
+            <div className='bg-light' id='navbar'>
                 <img src={logo} alt='' id='logo' />
-            </div>
-            <div className='bg-black' id='navbar'>
                 <NavLink to='/shop' className='nav-link-1'>
                     Shop
                 </NavLink>

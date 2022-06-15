@@ -4,7 +4,7 @@ import { getStoredCart } from '../../utilities/fakedb';
 const useCart = (products) => {
     const [cart, setCart] = useState([]);
     useEffect(() => {
-        if (products?.length !== 0) {
+        if (products?.length) {
             const storedCart = getStoredCart();
             // console.log(storedCart);
             //const savedCart =cart.filter(item => item.key ==)

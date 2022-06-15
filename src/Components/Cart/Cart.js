@@ -20,7 +20,9 @@ const Cart = ({ cart, children }) => {
     return (
         <div>
             <div className='text-center'>
-                <h1 className='text-danger mt-2'>Your Cart</h1>
+                <h1 className=' mt-2' style={{ color: 'green' }}>
+                    Your Cart
+                </h1>
                 <p>Items Ordered: {totalQuantity} </p>
             </div>
             <div className='mt-5 '>
@@ -58,10 +60,12 @@ const Cart = ({ cart, children }) => {
                 </div>
                 <div className='row justify-content-start mb-2'>
                     <div className='col'>
-                        <h3 className='text-danger fw-bold'>Orders Total:</h3>
+                        <h3 className=' fw-bold' style={{ color: 'green' }}>
+                            Orders Total:
+                        </h3>
                     </div>
                     <div className='col'>
-                        <h3 className='text-danger fw-bold'>
+                        <h3 className=' fw-bold' style={{ color: 'green' }}>
                             {total.toFixed(2)}
                         </h3>
                     </div>

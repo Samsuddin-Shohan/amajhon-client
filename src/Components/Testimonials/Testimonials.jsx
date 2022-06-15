@@ -17,7 +17,7 @@ const Testimonials = () => {
 
     return (
         <div style={{ backgroundColor: 'whitesmoke' }} className='py-2'>
-            <h1 className='text-center pt-5 text-success fw-bold'>Reviews</h1>
+            <h1 className='text-center pt-2 text-success fw-bold'>Reviews</h1>
 
             <Carousel indicators={false} interval={5000}>
                 {allReviews.map((review, idx) => (
@@ -36,7 +36,7 @@ const Testimonials = () => {
                     </Carousel.Item>
                 ))}
             </Carousel>
-            <div className='py-5 text-center'>
+            <div className='py-2 text-center'>
                 <Link to='/reviewform'>
                     <button className='btn btn-success text-white'>
                         Drop A Review

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {
     useHistory,
@@ -31,11 +32,16 @@ const Login = () => {
                     placeholder='Your password'
                 />
 
-                <input type='submit' value='Submit' />
+                <Button variant='success' className='mb-2'>
+                    Submit
+                </Button>
                 <p>
-                    New User? <Link to='/register'>Sign Up here</Link>
+                    New User?{' '}
+                    <Link to='/register' className='mb-2 nav-link-1'>
+                        Sign Up here
+                    </Link>
                 </p>
-                <div>--------or---------</div>
+                <div className='mb-2'>--------or---------</div>
                 <button
                     className='btn btn-warning my-3'
                     onClick={handleGoogleSignIn}

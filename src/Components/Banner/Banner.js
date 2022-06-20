@@ -6,6 +6,7 @@ import banner3 from '../../images/3.jpg';
 import { Carousel } from 'react-bootstrap';
 
 const Banner = () => {
+    console.log('hello');
     return (
         <div>
             <Carousel fade indicators={false}>

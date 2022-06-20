@@ -1,6 +1,6 @@
 import { CRow } from '@coreui/react';
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import useCart from '../../hooks/useCart/useCart';
 import useProducts from '../../hooks/useProducts/useProducts';
 import { clearTheCart } from '../../utilities/fakedb';
@@ -11,12 +11,13 @@ import Product from '../Product/Product';
 const Review = () => {
     const [products, setProducts] = useProducts();
     const [cart, setCart] = useCart(products);
-    const history = useHistory();
+    const navigate = useNavigate();
     const handlePlaceOrder = () => {
         // alert('Items Order completed');
         setCart([]);
         clearTheCart();
-        history.push('/placeorder');
+        // history.push('/placeorder');
+        navigate('/placeorder');
     };
     //console.log(products, cart.length);
     return (

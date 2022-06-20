@@ -1,10 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import {
-    useHistory,
-    useLocation,
-} from 'react-router-dom/cjs/react-router-dom.min';
+import { Link, useNavigate } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth/useAuth';
 import useFirebase from '../../hooks/useFirebase/useFirebase';
 import './Login.css';
@@ -12,11 +9,12 @@ import './Login.css';
 const Login = () => {
     const { googleSignIn } = useAuth();
     const location = useLocation();
-    const history = useHistory();
+    const navigate = useNavigate();
     const redirect_url = location.state?.from || '/shop';
     const handleGoogleSignIn = () => {
         googleSignIn().then((result) => {
-            history.push(redirect_url);
+            // history.push(redirect_url);
+            navigate(redirect_url);
         });
     };
 

@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './Components/Header/Header';
 import Shop from './Components/Shop/Shop';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Review from './Components/Review/Review';
 import Inventory from './Components/Inventory/Inventory';
 import Login from './Components/Login/Login';
@@ -18,35 +18,32 @@ function App() {
         <div>
             <Router>
                 <Header></Header>
-                <Switch>
-                    <Route exact path='/'>
-                        <Home></Home>
-                    </Route>
-                    <Route path='/shop'>
-                        <Shop></Shop>
-                    </Route>
-                    <Route path='/review'>
-                        <Review></Review>
-                    </Route>
-                    <Route path='/Inventory'>
-                        <Inventory></Inventory>
-                    </Route>
-                    <Route path='/login'>
-                        <Login></Login>
-                    </Route>
-                    <Route path='/register'>
-                        <Register></Register>
-                    </Route>
-                    <PrivateRoute path='/placeorder'>
-                        <PlaceOrder></PlaceOrder>
-                    </PrivateRoute>
-                    <PrivateRoute path='/reviewform'>
-                        <ReviewForm></ReviewForm>
-                    </PrivateRoute>
-                    <Route path='*'>
-                        <NotFound></NotFound>
-                    </Route>
-                </Switch>
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/shop' element={<Shop />} />
+                    <Route path='/review' element={<Review />} />
+                    <Route path='/inventory' element={<Inventory />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route
+                        path='/reviewform'
+                        element={
+                            <PrivateRoute>
+                                <ReviewForm />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path='/placeorder'
+                        element={
+                            <PrivateRoute>
+                                <PlaceOrder />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route path='/login' element={<Login />} />
+                </Routes>
                 <Footer></Footer>
             </Router>
         </div>

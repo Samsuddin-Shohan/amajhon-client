@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import banner1 from '../../images/1.jpg';
 import banner2 from '../../images/2.jpg';
 import banner3 from '../../images/3.jpg';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Carousel } from 'react-bootstrap';
 

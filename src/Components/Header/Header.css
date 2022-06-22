@@ -1,6 +1,16 @@
 #logo {
     height: 45px;
 }
+.navbar-light .navbar-brand {
+    font-weight: bold;
+    color: #354259;
+    font-family: cursive;
+}
+.btn-success {
+    background-color: #354259 !important;
+    color: white !important;
+    border: #354259 !important;
+}
 .log-out {
     display: inline-block;
     text-decoration: none;
@@ -19,9 +29,13 @@
 }
 .nav-link-1:hover {
     color: white;
-    background-color: greenyellow;
+    background-color: #354259;
     border-radius: 5px;
 }
-#navbar {
-    padding-left: 5rem;
+
+@media (min-width: 1032px) {
+    .navbar-expand-lg {
+        flex-wrap: wrap !important;
+        justify-content: flex-start !important;
+    }
 }

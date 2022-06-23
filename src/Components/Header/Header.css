@@ -33,9 +33,9 @@
     border-radius: 5px;
 }
 
-@media (min-width: 1032px) {
+@media only screen and (min-width: 1032px) {
     .navbar-expand-lg {
-        flex-wrap: wrap !important;
-        justify-content: flex-start !important;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
     }
 }

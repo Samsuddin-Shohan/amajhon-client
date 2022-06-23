@@ -1,77 +1,75 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import banner1 from '../../images/1.jpg';
 import banner2 from '../../images/2.jpg';
 import banner3 from '../../images/3.jpg';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
 import { Carousel } from 'react-bootstrap';
+import './Banner.css';
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+import Typewriter from 'typewriter-effect';
+import useAuth from '../../hooks/useAuth/useAuth';
 
 const Banner = () => {
     console.log('hello');
     return (
-        <div>
-            <Carousel fade indicators={false}>
-                <Carousel.Item>
-                    <img
-                        className='d-block w-100'
-                        src={banner1}
-                        alt='First slide'
-                        style={{ height: '40vw' }}
+        <OwlCarousel
+            className='owl-theme owl-carousel '
+            smartSpeed={1000}
+            loop
+            margin={5}
+            items={1}
+            rewind
+            autoPlay={true}
+            autoplaySpeed={5000}
+            mouseDrag={true}
+        >
+            <div class='item postition-relative'>
+                <img src={banner1}></img>
+                <div class='carousel-content'>
+                    <Typewriter
+                        options={{
+                            strings: [
+                                `Hello Everyone`,
+                                'Welcome to Everything',
+                            ],
+                            autoStart: true,
+                            loop: true,
+                        }}
                     />
-                    <Carousel.Caption>
-                        <p
-                            style={{
-                                fontSize: '3vw',
-                                fontWeight: 'bolder',
-                                color: 'whitesmoke',
-                            }}
-                        >
-                            Our First Priority is you.
-                        </p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className='d-block w-100'
-                        src={banner2}
-                        alt='Second slide'
-                        style={{ height: '40vw' }}
+                </div>
+            </div>
+            <div class='item'>
+                <img src={banner2}></img>
+                <div class='carousel-content'>
+                    <Typewriter
+                        options={{
+                            strings: [
+                                `Hello Everyone`,
+                                'Welcome to Everything',
+                            ],
+                            autoStart: true,
+                            loop: true,
+                        }}
                     />
-
-                    <Carousel.Caption>
-                        <p
-                            style={{
-                                fontSize: '3vw',
-                                fontWeight: 'bolder',
-                                color: 'whitesmoke',
-                            }}
-                        >
-                            Our First Priority is you.
-                        </p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className='d-block w-100'
-                        src={banner3}
-                        alt='Third slide'
-                        style={{ height: '40vw' }}
+                </div>
+            </div>
+            <div class='item'>
+                <img src={banner3}></img>
+                <div class='carousel-content'>
+                    <Typewriter
+                        options={{
+                            strings: [
+                                `Hello Everyone`,
+                                'Welcome to Everything',
+                            ],
+                            autoStart: true,
+                            loop: true,
+                        }}
                     />
-
-                    <Carousel.Caption>
-                        <p
-                            style={{
-                                fontSize: '3vw',
-                                fontWeight: 'bolder',
-                                color: 'whiteSmoke',
-                            }}
-                        >
-                            Our First Priority is you.
-                        </p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
-        </div>
+                </div>
+            </div>
+        </OwlCarousel>
     );
 };
 

@@ -1,4 +1,3 @@
-
 #side-logo {
     width: 250px;
     height: 60px;
@@ -7,6 +6,7 @@
     padding-top: 3rem;
     padding-bottom: 2rem;
     margin: 0px;
+    background-color: #354259 !important;
 }
 .logo {
     font-weight: bolder;

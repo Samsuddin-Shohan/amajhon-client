@@ -1,0 +1,29 @@
+.banner-size {
+    height: 25vh;
+    width: 100vw;
+}
+.owl-carousel .owl-item img {
+    height: 75vh;
+}
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+    transform: scale(1.2);
+    transition-property: all;
+    transition-duration: 2000ms;
+}
+.carousel-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.Typewriter__wrapper {
+    font-size: 3rem;
+    font-weight: bolder;
+    font-family: cursive;
+    color: white;
+}
+.Typewriter__cursor {
+    font-size: 3rem;
+    color: #354259;
+}

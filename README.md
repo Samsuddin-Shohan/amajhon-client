@@ -12,10 +12,10 @@
 
 ### Features
 
-1.Mainly an eCommerce web application
-2.Firebase authentication is implemented
-3.Before implementation, proper Requirement analysis & system design are conducted.
-4.In the future, planning to convert into a multi-warehouse eCommerce platform.
+1. Mainly an eCommerce web application
+2. Firebase authentication is implemented
+3. Before implementation, proper Requirement analysis & system design are conducted.
+4. In the future, planning to convert into a multi-warehouse eCommerce platform.
 
 <a href="https://ibb.co/2PVQb0c"><img src="https://i.ibb.co/q9qfZLm/Screenshot-from-2022-06-15-19-10-43.png" alt="Screenshot-from-2022-06-15-19-10-43" border="0"></a>
 <a href="https://ibb.co/D4ymNrq"><img src="https://i.ibb.co/TcSJZWC/Screenshot-from-2022-06-15-19-10-47.png" alt="Screenshot-from-2022-06-15-19-10-47" border="0"></a>

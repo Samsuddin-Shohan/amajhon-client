@@ -73,7 +73,7 @@ const Shop = () => {
 
     return (
         <div>
-            <div id='search-section' className='bg-light text-center'>
+            <div id='search-section' className='bg-white text-center'>
                 <input
                     type='text'
                     placeholder='Search Here'

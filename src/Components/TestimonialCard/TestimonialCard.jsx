@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import './TestimonialCard.css';
 
 const TestimonialCard = ({ img, name, description, rating, profession }) => {
     return (
-        <Card className='mx-2' style={{ width: '22rem', borderRadius: '6px' }}>
+        <Card className='mx-2 ' style={{ width: '22rem', borderRadius: '6px' }}>
             <Card.Body>
                 <Card.Title className='d-flex align-items-center'>
                     <img

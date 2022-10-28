@@ -3,46 +3,66 @@ import TestimonialCard from './../TestimonialCard/TestimonialCard';
 import { Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import LoadSpinner from '../LoadSpinner/LoadSpinner';
+import Slider from 'react-slick';
+import './Testimonials';
 const Testimonials = () => {
+    const settings = {
+        className: 'center',
+        centerMode: true,
+        infinite: true,
+        centerPadding: '10px',
+        slidesToShow: 3,
+        speed: 500,
+        autoplay: true,
+    };
     const [allReviews, setAllReviews] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        axios
-            .get('https://everything20.herokuapp.com/review')
-            .then((res) => setAllReviews(res.data));
+        setIsLoading(true);
+        axios.get('https://everything20.herokuapp.com/review').then((res) => {
+            setAllReviews(res.data);
+            setIsLoading(false);
+        });
     }, []);
 
     const count = 0;
 
     return (
         <div style={{ backgroundColor: 'whitesmoke' }} className='py-2'>
-            <h1 className='text-center pt-2 text-success fw-bold'>Reviews</h1>
+            {isLoading ? (
+                <LoadSpinner></LoadSpinner>
+            ) : (
+                <div>
+                    <h1 className='text-center pt-2 text-review fw-bold'>
+                        Reviews
+                    </h1>
 
-            <Carousel indicators={false} interval={5000}>
-                {allReviews.map((review, idx) => (
-                    <Carousel.Item>
-                        <div className=''>
-                            <div className='d-flex justify-content-center flex-wrap m-5'>
-                                <TestimonialCard
-                                    img={review.img}
-                                    name={review.name}
-                                    description={review.description}
-                                    rating={review.rating}
-                                    profession={review.profession}
-                                />
+                    <Slider {...settings} className='container'>
+                        {allReviews.map((review, idx) => (
+                            <div>
+                                <div className='d-flex justify-content-center flex-wrap m-5 review-container'>
+                                    <TestimonialCard
+                                        img={review.img}
+                                        name={review.name}
+                                        description={review.description}
+                                        rating={review.rating}
+                                        profession={review.profession}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    </Carousel.Item>
-                ))}
-            </Carousel>
-            <div className='py-2 text-center'>
-                <Link to='/reviewform'>
-                    <button className='btn btn-success text-white'>
-                        Drop A Review
-                    </button>
-                </Link>
-            </div>
+                        ))}
+                    </Slider>
+                    <div className='py-2 text-center'>
+                        <Link to='/reviewform'>
+                            <button className='btn btn-success text-white'>
+                                Drop A Review
+                            </button>
+                        </Link>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
